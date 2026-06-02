@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generátor hesiel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Generovať heslo</h1>
+            <p>Zabezbečte svoju digitálnu bezpečnosť kryptograficky bezpečným heslom.</p>
+        </header>
+
+        <main>
+            <!-- GENERÁTOR HESLA -->
+            <section class="generator-section">
+                <div class="generator-box">
+                    <h2>Generátor hesla</h2>
+
+                    <!-- Dĺžka hesla -->
+                    <div class="form-group">
+                        <label for="passwordLength">Dĺžka hesla: <span id="lengthValue">16</span></label>
+                        <input 
+                            type="range" 
+                            id="passwordLength" 
+                            min="8" 
+                            max="32" 
+                            value="16" 
+                            class="slider"
+                        >
+                        <div class="slider-labels">
+                            <span>8</span>
+                            <span>32</span>
+                        </div>
+                    </div>
+
+                    <!-- Checkboxy -->
+                    <div class="form-group">
+                        <label class="section-title">Typ znakov:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="uppercase" checked>
+                                <span>Veľké písmená (A–Z)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="lowercase" checked>
+                                <span>Malé písmená (a–z)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="numbers" checked>
+                                <span>Čísla (0–9)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="symbols" checked>
+                                <span>Špeciálne znaky (!@#$%...)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Tlačidlo generovať -->
+                    <button id="generateBtn" class="btn btn-primary">
+                        Generovať heslo
+                    </button>
+                </div>
+
+                <!-- VÝSTUP HESLA -->
+                <div class="output-box">
+                    <h2>Vygenerované heslo</h2>
+
+                    <!-- Heslo -->
+                    <div class="password-display">
+                        <input 
+                            type="text" 
+                            id="generatedPassword" 
+                            readonly 
+                            placeholder="Heslo sa zobrazí tu..."
+                            class="password-input"
+                        >
+                        <button id="copyBtn" class="btn btn-icon" title="Kopírovať">
+                            📋
+                        </button>
+                    </div>
+
+                    <!-- Indikátor sily hesla -->
+                    <div class="strength-indicator">
+                        <span class="strength-label">Sila hesla:</span>
+                        <div class="strength-bars">
+                            <div class="strength-bar" id="bar1"></div>
+                            <div class="strength-bar" id="bar2"></div>
+                            <div class="strength-bar" id="bar3"></div>
+                            <div class="strength-bar" id="bar4"></div>
+                        </div>
+                        <span class="strength-text" id="strengthText">—</span>
+                    </div>
+
+                    <!-- Uloženie hesla -->
+                    <div class="save-password-form">
+                        <input 
+                            type="text" 
+                            id="accountName" 
+                            placeholder="Názov účtu (napr. Facebook)"
+                            class="account-input"
+                        >
+                        <button id="saveBtn" class="btn btn-success">
+                            💾 Uložiť heslo
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPRÁVCA HESEL -->
+            <section class="manager-section">
+                <h2>Váš Trezor</h2>
+                <p class="section-description">Zoznam uložených hesiel</p>
+
+                <div id="passwordsList" class="passwords-list">
+                    <div class="empty-state">
+                        <p>🔒 Zatiaľ žiadne uložené heslá. Vygeneruj a ulož svoje prvé heslo!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 VaultGuard Pro | Bezpečnosť je priorita</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
